@@ -150,3 +150,30 @@ def face_inference(frame):
 
     return message
 
+# if __name__ == "__main__":
+#     cap = cv2.VideoCapture(0)
+#     print("Press SPACE to process the current frame for face recognition. Press 'q' to quit.")
+
+#     while True:
+#         ret, frame = cap.read()
+#         if not ret:
+#             break
+
+#         # Display the current frame continuously
+#         cv2.imshow('Face Recognition', frame)
+
+#         key = cv2.waitKey(1) & 0xFF
+
+#         if key == ord(' '):
+#             # Process the frame and get the message
+#             message = face_inference(frame.copy())
+#             # Overlay the message on the frame for visualization
+#             output_frame = frame.copy()
+#             cv2.putText(output_frame, message, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+#             cv2.imshow('Face Recognition', output_frame)
+#             print(message)
+#         elif key == ord('q'):
+#             break
+
+#     cap.release()
+#     cv2.destroyAllWindows()
