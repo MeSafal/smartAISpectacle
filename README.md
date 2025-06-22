@@ -13,6 +13,7 @@ _A project by Gokul Subedi, Samir Bhattarai, and Krish Gurung_
 
 📚 The book reading part of this vision evolved into a standalone project:
 by _Arjun & Sushmeet_
+
 👉 **[Book Reader — See Repository](https://github.com/MeSafal/readingAssistant)**
 
 ---
