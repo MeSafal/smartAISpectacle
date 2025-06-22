@@ -44,7 +44,7 @@ _This shared folder contains planning, demo, and fun recordings for full transpa
 
 ## 📜 Overview
 
-The **Smart AI Spectacle** is a revolutionary wearable device that assists visually impaired individuals by providing real-time audio feedback about their surroundings, identifying Nepalese currency, and recognizing familiar faces. Developed as a Bachelor’s degree project at Sagarmatha Engineering College, Nepal, it leverages advanced AI models (ResNet-18, ResNet-50, and LSTM/Blip) and an ESP32-Cam to process images, delivering audio descriptions via a Text-to-Speech (TTS) engine. This innovative solution enhances independence and accessibility, turning eyewear into a smart guide that describes the environment, detects money, and identifies people—all through seamless hardware and software integration.
+The **Smart AI Spectacle** is a revolutionary wearable device that assists visually impaired individuals by providing real-time audio feedback about their surroundings, identifying Nepalese currency, and recognizing familiar faces. Developed as a Bachelor’s degree project at Tribhuwan University, Nepal, it leverages advanced AI models (ResNet-18, ResNet-50, and LSTM/Blip) and an ESP32-Cam to process images, delivering audio descriptions via a Text-to-Speech (TTS) engine. This innovative solution enhances independence and accessibility, turning eyewear into a smart guide that describes the environment, detects money, and identifies people—all through seamless hardware and software integration.
 
 For full technical details, see the [Project Report](final_project_smart_AI_spectacle.pdf).
 
@@ -187,10 +187,6 @@ If you’re eager to collaborate, offer support, or share suggestions, my team a
 
 ## 🏫 Acknowledgments
 
-- Sagarmatha Engineering College, Dept. of Electronics & Computer Engineering
-- Er. Bharat Bhatta (Supervisor)
-- Er. Bipin Thapa Magar, Er. Baikuntha Acharya (Coordinators)
-- Kaggle commu
 - Arjun Koirala and @Sushmit Paudel for exceptional support. 
 - Kaggle community and open-source contributors
 
@@ -208,4 +204,4 @@ If you’re eager to collaborate, offer support, or share suggestions, my team a
 
 > ⚠️ All images in here are added from the project report itself.
 
-<sub><p align="center">📘 This repository and README are exclusively created and maintained by <a href="https://github.com/MeSafal/" target="_blank"><u><strong>Gokul Subedi</strong></u></a> The latest repo may contain extra detail, visit github.com/meSafal if you are not already</p></sub>
+<sub><p align="center">📘 This repository and its documentation were curated and maintained by <a href="https://github.com/MeSafal/" target="_blank"><u><strong>Gokul Subedi</strong></u></a>. For the latest updates and related projects, visit <a href="https://github.com/MeSafal" target="_blank">github.com/MeSafal</a>.</p></sub>
