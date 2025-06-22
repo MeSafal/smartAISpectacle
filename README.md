@@ -190,6 +190,8 @@ If you’re eager to collaborate, offer support, or share suggestions, my team a
 - Sagarmatha Engineering College, Dept. of Electronics & Computer Engineering
 - Er. Bharat Bhatta (Supervisor)
 - Er. Bipin Thapa Magar, Er. Baikuntha Acharya (Coordinators)
+- Kaggle commu
+- Arjun Koirala and @Sushmit Paudel for exceptional support. 
 - Kaggle community and open-source contributors
 
 ---
@@ -206,4 +208,4 @@ If you’re eager to collaborate, offer support, or share suggestions, my team a
 
 > ⚠️ All images in here are added from the project report itself.
 
-<sub><p align="center">📘 This repository and README are maintained by <a href="https://github.com/MeSafal/" target="_blank"><u><strong>Gokul Subedi</strong></u></a> in support of the original developers.</p></sub>
+<sub><p align="center">📘 This repository and README are exclusively created and maintained by <a href="https://github.com/MeSafal/" target="_blank"><u><strong>Gokul Subedi</strong></u></a> The latest repo may contain extra detail, visit github.com/meSafal if you are not already</p></sub>
