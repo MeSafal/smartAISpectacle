@@ -2,12 +2,45 @@
 _A project by Gokul Subedi, Samir Bhattarai, and Krish Gurung_
 
 ---
-## 🎥 Demo Video ▶️
 
-👉 [Placeholder for Demo Video] (Link to be provided later by the project team)  
-_(Hosted externally, to be updated)_
+## 🎥 Demo Showcase
+
+### 📌 What Was Planned  
+🧠 Our original vision included a complete smart reading system capable of real-time OCR, segmentation, and audio playback — all offline.
+
+🎯 Watch our planned concept video:  
+👉 [📹 Vision & Planned Video](https://drive.google.com/file/d/1bvSfbsYHHhIE6tTSr1Md4ksHpTwNekQm/view?usp=drive_link)
+
+📚 The book reading part of this vision evolved into a standalone project:
+by _Arjun & Sushmeet_
+👉 **[Book Reader — See Repository](https://github.com/MeSafal/readingAssistant)**
 
 ---
+
+### ✅ What Was Achieved  
+🚀 Here’s what we successfully built and demonstrated:  
+👉 [📽️ Project Demo Video](https://drive.google.com/file/d/1WOk6OGF2B9G4DnmsZEBukvpV3pstKnXK/view?usp=drive_link)
+
+---
+
+### 🎉 Fun Behind the Scenes  
+😄 Engineering has its moments — here’s a lighthearted look behind the build process:  
+👉 [🎬 Watch Fun/Bloopers Video](https://drive.google.com/file/d/1OVX2-oNFI8HZVuiPecNrl6nQ6l_yAgpX/view?usp=drive_link)
+
+---
+
+---
+
+## 🎞️ Project Video Library
+
+> 💡 Explore everything me and my team have built — from our early vision to final execution and fun behind-the-scenes moments.
+
+👉 [📁 Access All Project Videos on Google Drive](https://drive.google.com/drive/folders/1XJ2Pygg4lbet_aBQyB7b7QG9pEV38vye?usp=drive_link)
+
+_This shared folder contains planning, demo, and fun recordings for full transparency and storytelling._
+
+---
+
 
 ## 📜 Overview
 
