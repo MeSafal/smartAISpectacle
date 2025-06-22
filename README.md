@@ -6,7 +6,7 @@ _A project by Gokul Subedi, Samir Bhattarai, and Krish Gurung_
 ## 🎥 Demo Showcase
 
 ### 📌 What Was Planned  
-🧠 Our original vision included a complete smart reading system capable of real-time OCR, segmentation, and audio playback — all offline.
+🧠 Our original vision included a complete visually impaired support Including - Reading Assistant, Scene Description, Face Recognition and Nepali Currency Identification.
 
 🎯 Watch our planned concept video:  
 👉 [📹 Vision & Planned Video](https://drive.google.com/file/d/1bvSfbsYHHhIE6tTSr1Md4ksHpTwNekQm/view?usp=drive_link)
