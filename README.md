@@ -80,7 +80,7 @@ This project is built around a robust **Master–Slave architecture**, split int
 ### 🛰️ Slave Phase — ESP32-CAM Logic
 
 The ESP32-CAM acts as a dedicated lightweight image sender and input handler. Its responsibilities are minimal but mission-critical.
----
+
 #### 🔁 Always-On Listener Mode
 - The ESP32 remains in an idle loop, doing nothing until a **physical button press** is detected.
 - Upon the first press, it immediately enters the **Active Zone**.
