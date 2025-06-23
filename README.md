@@ -80,39 +80,39 @@ This project is built around a robust **Master–Slave architecture**, split int
 ### 🛰️ Slave Phase — ESP32-CAM Logic
 
 The ESP32-CAM acts as a dedicated lightweight image sender and input handler. Its responsibilities are minimal but mission-critical.
-
+---
 #### 🔁 Always-On Listener Mode
 - The ESP32 remains in an idle loop, doing nothing until a **physical button press** is detected.
 - Upon the first press, it immediately enters the **Active Zone**.
-
+---
 #### 🔗 Signal to Master
 - After activation, ESP sends a **notification signal** to the laptop (Master), indicating readiness and button press count.
 - It then waits for a formal **image request** from the laptop.
-
+---
 #### 🔔 Button Interrupt Handling
 - Each button press is **counted**, starting from 1.
 - Multiple presses during this state are logged without interfering with image capture.
-
+---
 #### 📷 Image Capture & API Delivery
 - Once the master sends the image request, ESP:
   - Captures a new image
   - Sends it via a secured API call (with the button press count in the header)
   - Returns immediately to the idle loop
-
+---
 #### 🕒 Timeout Logic
 - If the laptop doesn’t respond within **1 second**, ESP:
   - Assumes the master is busy or unreachable
   - Cancels the interaction
   - Flushes the button count
   - Returns to idle mode (no image is captured)
-
+---
 #### 📡 Offline-Ready Communication
 - ESP and laptop operate via their **own hosted WiFi hotspot**.
 - The system does **not rely on external networks** or internet connectivity.
 - This design ensures full functionality even in remote or disconnected environments — like dense urban areas, rural villages, or even forested zones.
 
 📌 This lightweight, interrupt-driven approach ensures ESP remains **responsive**, **efficient**, and always ready to serve when the master system is available.
-
+---
 ## 🧠 Master Phase — Laptop Logic
 
 Upon receiving the ESP32-CAM’s button-press interruption, the laptop (Master) orchestrates the heavy lifting: model selection, image request, inference, and audio output.
