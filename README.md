@@ -57,6 +57,7 @@ For full technical details, see the [Project Report](final_project_smart_AI_spec
 All demo assets will be in the `images/` folder.  
 _Assets are from [Project Report](final_project_smart_AI_spectacle.pdf), may be a bit blurry._
 
+---
 ## ✨ Features
 
 - **Real-time Scene Description** with ResNet-50 and LSTM/Blip
@@ -66,46 +67,7 @@ _Assets are from [Project Report](final_project_smart_AI_spectacle.pdf), may be 
 - **Audio Feedback** via pyttsx3 TTS engine
 - **Modular Design**: Sender (ESP32-Cam) / Receiver (laptop) architecture
 
-## 🛠️ Hardware Components
-
-| Component          | Description                                 |
-|--------------------|---------------------------------------------|
-| ESP32-Cam          | Captures images and handles button inputs   |
-| Push Buttons       | Controls power supply and workflow          |
-| Buck Converter     | Regulates power for stable operation        |
-| Speaker            | Delivers audio feedback                     |
-| Eyewear            | Houses the impressive hardware setup        |
-| Laptop             | Processes AI models with CUDA-capable GPU   |
-
-## 💻 Software & Libraries
-
-- **Python 3.x**
-- **TensorFlow** (CUDA 12.6 compatible)
-- **OpenCV**, **NumPy**, **PyTorch**, **transformers**, **pyttsx3**
-- C/C++ for ESP32 programming
-- Visual Studio Code and Arduino IDE for development
-
-## 🗺️ System Architecture & Flowchart
-
-- ![System Block Diagram](images/system.png)
-- ![Transmitter](images/transmitter.png)
-- ![Hardware Simplified](images/hardware.png)
-
-
-```text
-ESP32-Cam → Image Capture → WiFi → Laptop → AI Models → TTS → Speaker → Audio Feedback
-```
-
-## 🔄 Control Mapping & Safety
-
-| Button Press       | Action                          |
-|--------------------|---------------------------------|
-| 1 Press            | Activate Face Recognition       |
-| 2 Presses          | Activate Currency Identification|
-| 3+ Presses         | Activate Scene Description      |
-
-**Safety**: Power button ensures controlled activation/deactivation of the ESP32-Cam.
-
+---
 ## 📦 System Operation Phases
 
 This project is built around a robust **Master–Slave architecture**, split into two core functional phases:
@@ -217,6 +179,46 @@ Upon receiving the ESP32-CAM’s button-press interruption, the laptop (Master) 
 ---
 
 > 📌 **Note:** The Master–Slave handshake (0.9 s wait + 0.1 s ESP timeout) ensures reliable, user-friendly operation in any environment—urban, rural, or off-grid.  
+
+## 🛠️ Hardware Components
+
+| Component          | Description                                 |
+|--------------------|---------------------------------------------|
+| ESP32-Cam          | Captures images and handles button inputs   |
+| Push Buttons       | Controls power supply and workflow          |
+| Buck Converter     | Regulates power for stable operation        |
+| Speaker            | Delivers audio feedback                     |
+| Eyewear            | Houses the impressive hardware setup        |
+| Laptop             | Processes AI models with CUDA-capable GPU   |
+
+## 💻 Software & Libraries
+
+- **Python 3.x**
+- **TensorFlow** (CUDA 12.6 compatible)
+- **OpenCV**, **NumPy**, **PyTorch**, **transformers**, **pyttsx3**
+- C/C++ for ESP32 programming
+- Visual Studio Code and Arduino IDE for development
+
+## 🗺️ System Architecture & Flowchart
+
+- ![System Block Diagram](images/system.png)
+- ![Transmitter](images/transmitter.png)
+- ![Hardware Simplified](images/hardware.png)
+
+
+```text
+ESP32-Cam → Image Capture → WiFi → Laptop → AI Models → TTS → Speaker → Audio Feedback
+```
+
+## 🔄 Control Mapping & Safety
+
+| Button Press       | Action                          |
+|--------------------|---------------------------------|
+| 1 Press            | Activate Face Recognition       |
+| 2 Presses          | Activate Currency Identification|
+| 3+ Presses         | Activate Scene Description      |
+
+**Safety**: Power button ensures controlled activation/deactivation of the ESP32-Cam.
 
 ---
 ## 📡 Communication & Control Functions
