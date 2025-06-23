@@ -201,9 +201,17 @@ Upon receiving the ESP32-CAM’s button-press interruption, the laptop (Master) 
 
 ## 🗺️ System Architecture & Flowchart
 
-- ![System Block Diagram](images/system.png)
-- ![Transmitter](images/transmitter.png)
-- ![Hardware Simplified](images/hardware.png)
+### 🧩 System Block Diagram  
+![System Block Diagram](images/system.png)  
+<sub><strong>Fig 1:</strong> High-level overview of component interaction from ESP32-CAM to laptop processing pipeline.</sub>
+
+### 📡 Transmitter Architecture  
+![Transmitter](images/transmitter.png)  
+<sub><strong>Fig 2:</strong> Internal architecture and control flow inside the ESP32-CAM-based transmitter unit.</sub>
+
+### 🛠️ Hardware Integration  
+![Hardware Simplified](images/hardware.png)  
+<sub><strong>Fig 3:</strong> Simplified illustration of how the hardware components are embedded within the wearable spectacle.</sub>
 
 
 ```text
