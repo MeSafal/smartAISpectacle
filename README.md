@@ -30,7 +30,6 @@ by _Arjun & Sushmeet_
 
 ---
 
----
 
 ## 🎞️ Project Video Library
 
@@ -48,21 +47,6 @@ _This shared folder contains planning, demo, and fun recordings for full transpa
 The **Smart AI Spectacle** is a revolutionary wearable device that assists visually impaired individuals by providing real-time audio feedback about their surroundings, identifying Nepalese currency, and recognizing familiar faces. Developed as a Bachelor’s degree project at Tribhuwan University, Nepal, it leverages advanced AI models (ResNet-18, ResNet-50, and LSTM/Blip) and an ESP32-Cam to process images, delivering audio descriptions via a Text-to-Speech (TTS) engine. This innovative solution enhances independence and accessibility, turning eyewear into a smart guide that describes the environment, detects money, and identifies people—all through seamless hardware and software integration.
 
 For full technical details, see the [Project Report](final_project_smart_AI_spectacle.pdf).
-
-## 📝 Introduction
-
-### Background
-Globally, approximately 285 million people are visually impaired, with many facing significant challenges in navigating their environments, managing finances, or recognizing people without assistance. In Nepal, limited access to advanced assistive technologies exacerbates these issues, leaving individuals reliant on caregivers for daily tasks.
-
-### Problem Definition
-Visually impaired individuals often struggle with spatial awareness, currency identification, and social interaction due to the lack of affordable, real-time assistive solutions. This project addresses these gaps by offering a wearable AI-powered device that reduces dependency and improves quality of life.
-
-### Objectives
-- **Develop** a wearable AI system for real-time environmental awareness and recognition.
-- **Implement** deep learning models to classify scenes, currency, and faces.
-- **Deploy** the system on eyewear with ESP32-Cam and laptop processing.
-- **Deliver** audio feedback via TTS for an intuitive user experience.
-- **Demonstrate** a proof-of-concept prototype for visually impaired users.
 
 ## 🎥 Demo
 
@@ -122,14 +106,119 @@ ESP32-Cam → Image Capture → WiFi → Laptop → AI Models → TTS → Speake
 
 **Safety**: Power button ensures controlled activation/deactivation of the ESP32-Cam.
 
-## 📐 Component Roles
+## 📦 System Operation Phases
 
-### ESP32-Cam
-Acts as sender: captures images and sends them with button press count via WiFi hotspot.
+This project is built around a robust **Master–Slave architecture**, split into two core functional phases:
 
-### Laptop
-Acts as receiver: processes images with AI models and generates audio output via TTS.
+- 🛰️ **Slave Phase** – Managed by the ESP32-CAM (image capture + communication)
+- 🧠 **Master Phase** – Managed by the Laptop (image processing + AI inference + TTS)
 
+---
+
+### 🛰️ Slave Phase — ESP32-CAM Logic
+
+The ESP32-CAM acts as a dedicated lightweight image sender and input handler. Its responsibilities are minimal but mission-critical.
+
+#### 🔁 Always-On Listener Mode
+- The ESP32 remains in an idle loop, doing nothing until a **physical button press** is detected.
+- Upon the first press, it immediately enters the **Active Zone**.
+
+#### 🔗 Signal to Master
+- After activation, ESP sends a **notification signal** to the laptop (Master), indicating readiness and button press count.
+- It then waits for a formal **image request** from the laptop.
+
+#### 🔔 Button Interrupt Handling
+- Each button press is **counted**, starting from 1.
+- Multiple presses during this state are logged without interfering with image capture.
+
+#### 📷 Image Capture & API Delivery
+- Once the master sends the image request, ESP:
+  - Captures a new image
+  - Sends it via a secured API call (with the button press count in the header)
+  - Returns immediately to the idle loop
+
+#### 🕒 Timeout Logic
+- If the laptop doesn’t respond within **1 second**, ESP:
+  - Assumes the master is busy or unreachable
+  - Cancels the interaction
+  - Flushes the button count
+  - Returns to idle mode (no image is captured)
+
+#### 📡 Offline-Ready Communication
+- ESP and laptop operate via their **own hosted WiFi hotspot**.
+- The system does **not rely on external networks** or internet connectivity.
+- This design ensures full functionality even in remote or disconnected environments — like dense urban areas, rural villages, or even forested zones.
+
+📌 This lightweight, interrupt-driven approach ensures ESP remains **responsive**, **efficient**, and always ready to serve when the master system is available.
+
+## 🧠 Master Phase — Laptop Logic
+
+Upon receiving the ESP32-CAM’s button-press interruption, the laptop (Master) orchestrates the heavy lifting: model selection, image request, inference, and audio output.
+
+---
+
+### ⏱️ Debounce & Mode Selection (0.9 s Window)
+- **Wait 0.9 seconds** after the first interrupt to collect additional presses:
+  - **1 press** → Face Recognition  
+  - **2 presses** → Currency Identification  
+  - **3+ presses** → Scene Description  
+- This 0.9 s window ensures all user intents arrive before the ESP times out at 1 s.
+
+---
+
+### 🔗 Image Request
+- After 0.9 s, Master sends an **“Image Request”** signal back to the ESP.
+- ESP then captures and streams the image + press count via the secured API.
+
+---
+
+### 🖼️ Image Reception & Preprocessing
+
+1. **Reception**  
+   - Receives the raw image data and associated button-press count via API.
+
+2. **Preprocessing**  
+   - Converts the image into a model-compatible format using the **same preprocessing pipeline** applied during model training (e.g., resizing, normalization, color-space conversion).
+
+3. **Implementation Detail**  
+   - For added robustness and modularity, preprocessing logic may reside within individual model pipelines. This ensures each model explicitly applies its expected preprocessing steps before inference.
+
+
+---
+
+### 🤖 Model Inference
+- **Route** image to the correct AI model based on button count:
+  1. Face Recognition  
+  2. Money Identification  
+  3. 3+ Scene Description  
+- **Await** model output (all models run locally on the laptop).
+
+---
+
+### 🔊 Audio Feedback
+- **Convert** the model’s text output to speech via the default playback engine.  
+- **Play** audio on the active speaker in a separate thread, so UI remains responsive.
+
+---
+
+### 🚫 Interrupt Handling
+- **While processing**, any new ESP interrupts are **ignored**:
+  - Master does **not** send a new request, causing ESP to timeout and flush.  
+- **Exception**: During longer Scene Description inference, rapid presses can preempt a new cycle—demonstrating robust ignore logic.
+
+---
+
+### 🔄 Fallback & Flexibility
+- **No ESP?** Master can:
+  1. Use any connected camera (e.g., USB webcam)  
+  2. Accept keyboard input (`1`, `2`, `3`) to select mode  
+- This “offline, hardware-agnostic” design proves Master’s versatility beyond the ESP32 hotspot.
+
+---
+
+> 📌 **Note:** The Master–Slave handshake (0.9 s wait + 0.1 s ESP timeout) ensures reliable, user-friendly operation in any environment—urban, rural, or off-grid.  
+
+---
 ## 📡 Communication & Control Functions
 
 ```python
